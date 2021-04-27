@@ -3,28 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/jpg" href="{{url_for('static', filename='img/waterylogo.png')}}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatroom</title>
     <style>
+        *{
+            font-family: sans-serif;
+        }
         .chatroom_container{
             text-align: center;
         }
-        .msg{
+        .room_name{
+            width: 80%;
+            overflow-wrap: break-word;
+            margin: auto;
+            -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        .msg_con{
             margin-top: 20px;
-            margin-right: 150px;
-            background: blue;
+            margin-right: 70%;
+            color: white;
+            overflow-wrap: break-word;
+            border-radius: 20px;
+            background: #35A7FF;
+        }
+        .msg{
+            padding: 5px;
+            padding-left: 8px;
         }
         .your_msg{
+            padding: 5px;
+            padding-right: 8px;
+        }
+        .your_msg_con{
             margin-top: 20px;
-            margin-left: 150px;
-            background: red;
+            margin-left: 70%;
+            color: white;
+            border-radius: 20px;
+            overflow-wrap: break-word;
+            background: #6F2DBD;
         }
         #space {
             margin: auto;
-            width: 300px;
-            height: 300px;
+            width: 80%;
+            height: 600px;
             padding: 5px;
-            border: 2px solid black;
+            overflow: auto;
+            -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         }
         #space .msg{
             text-align: left;
@@ -32,21 +59,60 @@
         #space .your_msg{
             text-align: right;
         }
+        .textinput{
+            margin: auto;
+        }
+        #msggs{
+            height: 50px;
+            width: 80%;
+            font-size: 25px;
+        }
+        #sendbutton{
+            font-size: large;
+            color: white;
+            background: #3772FF;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 80.5%;
+            height: 50px;
+        }
+        .leave{
+            font-size: large;
+            color: white;
+            background: #38FF60;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 80.5%;
+            height: 50px;
+        }
+        
 
     </style>
 </head>
 <body>
     <div class="chatroom_container">
-        <h1>Hello</h1>
+        <div class="room_name">
+            <h1 style="padding: 5px;">Room: {{room_name}}</h1>
+        </div>
         <template>
-            <p class="msg"></p>
+            <div class="msg_con">
+                <p class="msg"></p>
+            </div>
         </template>
         <template>
-            <p class="your_msg"></p>
+            <div class="your_msg_con">
+                <p class="your_msg"></p>
+            </div>
         </template>
         <div id="space"></div>
-        <input type="text" id="msggs">
-        <button id="sendbutton">Send</button>
+        <div class="textinput">
+            <input type="text" id="msggs"><br>
+            <button id="sendbutton">Send</button>
+            <!--placing this here cuz its convenient-->
+            <a href="/home"><button class="leave">Leave</button></a>
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
     <script>let your_name = '{{name}}';

@@ -27,7 +27,7 @@ def main(room_name):
     if "name" in session:
         name = session["name"]
         room_name = room_name
-        return render_template("main.html", name=name)
+        return render_template("main.html", name=name, room_name=room_name)
     else:
         return redirect(url_for("entername"))
 
@@ -45,12 +45,10 @@ def redirects():
 
 @app.route("/entername", methods=["POST","GET"])
 def entername():
-    if "name" in session:
-        return redirect(url_for("home"))
     if request.method == "POST":
         name = request.form["name"]
         session["name"] = name
-        return redirect(url_for("main", room_name="f"))
+        return redirect(url_for("home"))
     return render_template("entername.html")
 
 if __name__ == '__main__':

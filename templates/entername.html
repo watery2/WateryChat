@@ -3,14 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/jpg" href="{{url_for('static', filename='img/waterylogo.png')}}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entername</title>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+        .form_con{
+            text-align: center;
+            margin: auto;
+            margin-top: 400px;
+            width: 300px;
+            -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        form{
+            padding: 30px;
+        }
+        .text_inp{
+            width: 230px;
+            height: 30px;
+            font-size: 25px;
+        }
+        .button{
+            margin-top: 20px;
+            color: white;
+            font-size: medium;
+            width: 240px;
+            height: 30px;
+            border: none;
+            cursor: pointer;
+            background: #35A7FF;
+        }
+    </style>
 </head>
 <body>
-    <form action="" method="POST">
-        <input type="text" name="name">
-        <input type="submit">
-    </form>
+    <div class="container">
+        <div class="form_con">
+            <form action="" method="POST">
+                <input type="text" name="name" class="text_inp"><br>
+                <input type="submit" class="button">
+            </form>
+        </div>
+    </div>
     
 </body>
 </html>
