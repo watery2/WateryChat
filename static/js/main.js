@@ -10,7 +10,7 @@ socket.on('message', function(msg){
     let tem_clone1 = tem[0].content.cloneNode(true);
     let tem_clone2 = tem[1].content.cloneNode(true);
     if( msg.name === your_name){
-        tem_clone2.querySelector(".your_msg").innerHTML = "You: " + msg.msg ;
+        tem_clone2.querySelector(".your_msg").innerHTML = msg.msg ;
         space.appendChild(tem_clone2)
     }else{
         tem_clone1.querySelector(".msg").innerHTML = msg.name +": " + msg.msg ;
@@ -22,5 +22,5 @@ socket.on('message', function(msg){
 });
 document.getElementById("sendbutton").onclick = function(){
     socket.send({"msg": document.getElementById("msggs").value, "url": window.location.href});
-    document.getElementById("msggs").value = " "
+    document.getElementById("msggs").value = ""
 }

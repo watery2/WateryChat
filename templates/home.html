@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/jpg" href="{{url_for('static', filename='img/waterylogo.png')}}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+        .container{
+            text-align: center;
+        }
+        button{
+            margin-top: 20px;
+        }
+        .room-name{
+            width: 230px;
+            height: 30px;
+            font-size: 25px;
+        }
+        .search_button{
+            color: white;
+            font-size: large;
+            width: 240px;
+            height: 30px;
+            border: none;
+            cursor: pointer;
+            background: #35A7FF;
+        }
+        .name_button{
+            color: white;
+            font-size: large;
+            width: 240px;
+            height: 30px;
+            border: none;
+            cursor: pointer;
+            background: #38FF60; 
+        }
+        .room_enter{
+            margin: auto;
+            margin-top: 350px;
+            padding: 20px;
+            width: 300px;
+            -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="room_enter">
+            <h1>Enter a room name</h1>
+            <input type="text" class="room-name" placeholder="Room name..."><br>
+            <p  class="error_text" style="color: red; display: none;"></p>
+            <button class="search_button" onclick="go()">Go</button><br>
+            <a href="/entername"><button class="name_button">Change Name</button></a>
+        </div>
+    </div>
+    <script>
+        function go(){
+            var name = document.getElementsByClassName("room-name")[0].value;
+            if(name){
+                var link = `/room/${name}`;
+                window.location.replace(link);
+            }else{
+                document.getElementsByClassName("error_text")[0].style.display = "block"
+                document.getElementsByClassName("error_text")[0].innerHTML = "Please enter something";
+            }
+        }
+    </script>
+    
+</body>
+</html>
