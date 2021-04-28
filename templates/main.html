@@ -14,7 +14,7 @@
             text-align: center;
         }
         .room_name{
-            width: 80%;
+            width: 600px;
             overflow-wrap: break-word;
             margin: auto;
             -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -22,7 +22,7 @@
         }
         .msg_con{
             margin-top: 20px;
-            margin-right: 70%;
+            margin-right: 400px;
             color: white;
             overflow-wrap: break-word;
             border-radius: 20px;
@@ -38,7 +38,7 @@
         }
         .your_msg_con{
             margin-top: 20px;
-            margin-left: 70%;
+            margin-left: 400px;
             color: white;
             border-radius: 20px;
             overflow-wrap: break-word;
@@ -46,7 +46,7 @@
         }
         #space {
             margin: auto;
-            width: 80%;
+            width: 600px;
             height: 600px;
             padding: 5px;
             overflow: auto;
@@ -64,7 +64,7 @@
         }
         #msggs{
             height: 50px;
-            width: 80%;
+            width: 600px;
             font-size: 25px;
         }
         #sendbutton{
@@ -74,7 +74,7 @@
             border: none;
             cursor: pointer;
             margin-top: 20px;
-            width: 80.5%;
+            width: 600px;
             height: 50px;
         }
         .leave{
@@ -84,8 +84,31 @@
             border: none;
             cursor: pointer;
             margin-top: 20px;
-            width: 80.5%;
+            width: 600px;
             height: 50px;
+        }
+        @media (max-width: 865px){
+            .room_name{
+                width: 400px;
+            }
+            .msg_con{
+                margin-left: 300px;
+            }
+            .your_msg_con{
+                margin-left: 300px;
+            }
+            #space{
+                width: 400px;
+            }
+            #msggs{
+                width: 400px;
+            }
+            #sendbutton{
+                width: 400px;
+            }
+            .leave{
+                width: 400px;
+            }
         }
         
 
@@ -109,7 +132,7 @@
         <div id="space"></div>
         <div class="textinput">
             <input type="text" id="msggs" placeholder="Message..."><br>
-            <button id="sendbutton">Send</button>
+            <button id="sendbutton">Send</button><br>
             <!--placing this here cuz its convenient-->
             <a href="/home"><button class="leave">Leave</button></a>
         </div>
