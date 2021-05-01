@@ -40,8 +40,8 @@ def main(room_name):
         except AttributeError:
             pass
         if len(msgs) > 100:
-            msgs = msgs[0:101]
-            names = names[0:101]
+            del msgs[:len(msgs) - 100]
+            del names[:len(names) - 100]
         msgs_len = len(msgs)
         return render_template("main.html", name=name, room_name=room_name, msgs=msgs, names=names, msg_len=msgs_len)
     else:
