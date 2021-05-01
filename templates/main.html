@@ -129,7 +129,19 @@
                 <p class="your_msg"></p>
             </div>
         </template>
-        <div id="space"></div>
+        <div id="space">
+            {% for i in range(msg_len) %}
+                {% if names[i] == name %}
+                    <div class="your_msg_con">
+                        <p class="your_msg">{{msgs[i]}}</p>
+                    </div>
+                {% else %}
+                    <div class="msg_con">
+                        <p class="msg">{{msgs[i]}}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
         <div class="textinput">
             <input type="text" id="msggs" placeholder="Message..."><br>
             <button id="sendbutton">Send</button><br>
@@ -138,7 +150,7 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
-    <script>let your_name = '{{name}}';
+    <script>let your_name = '{{name}}'; let room_name = '{{room_name}}';
     </script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
